@@ -1,0 +1,1694 @@
+==3624== Memcheck, a memory error detector
+==3624== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3624== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==3624== Command: ./program ../../android
+==3624== Parent PID: 2081
+==3624== 
+--3624-- 
+--3624-- Valgrind options:
+--3624--    --leak-check=full
+--3624--    --show-leak-kinds=all
+--3624--    --track-origins=yes
+--3624--    --verbose
+--3624--    --log-file=valgrind-out.txt
+--3624-- Contents of /proc/version:
+--3624--   Linux version 4.15.0-20-generic (buildd@lgw01-amd64-039) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #21-Ubuntu SMP Tue Apr 24 06:16:15 UTC 2018
+--3624-- 
+--3624-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--3624-- Page sizes: currently 4096, max supported 4096
+--3624-- Valgrind library directory: /usr/lib/valgrind
+--3624-- Reading syms from /home/lucas/2ano/Li3/Grupo8/src/program
+--3624-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--3624--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--3624--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--3624--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--3624--   .. CRC is valid
+--3624-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--3624--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--3624--   .. CRC mismatch (computed 62965bbf wanted eeb84137)
+--3624--    object doesn't have a symbol table
+--3624--    object doesn't have a dynamic symbol table
+--3624-- Scheduler: using generic scheduler lock implementation.
+--3624-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==3624== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-3624-by-lucas-on-???
+==3624== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-3624-by-lucas-on-???
+==3624== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-3624-by-lucas-on-???
+==3624== 
+==3624== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==3624== don't want to do, unless you know exactly what you're doing,
+==3624== or are doing some strange experiment):
+==3624==   /usr/lib/valgrind/../../bin/vgdb --pid=3624 ...command...
+==3624== 
+==3624== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==3624==   /path/to/gdb ./program
+==3624== and then give GDB the following command
+==3624==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=3624
+==3624== --pid is optional if only one valgrind process is running
+==3624== 
+--3624-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--3624-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--3624-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--3624--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--3624--   .. CRC mismatch (computed 13d5e98a wanted 1786ecf1)
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--3624--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--3624--   .. CRC mismatch (computed 8f77ef36 wanted fcbde737)
+--3624--    object doesn't have a symbol table
+==3624== WARNING: new redirection conflicts with existing -- ignoring it
+--3624--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--3624--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--3624-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--3624-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--3624-- Reading syms from /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--3624--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--3624--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--3624--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--3624--   .. CRC is valid
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.27.so
+--3624--   Considering /lib/x86_64-linux-gnu/libdl-2.27.so ..
+--3624--   .. CRC mismatch (computed bd82fa02 wanted d1fdccc9)
+--3624--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libdl-2.27.so ..
+--3624--   .. CRC is valid
+--3624-- Reading syms from /usr/lib/x86_64-linux-gnu/libicuuc.so.60.2
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libz.so.1.2.11
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libm-2.27.so
+--3624--   Considering /lib/x86_64-linux-gnu/libm-2.27.so ..
+--3624--   .. CRC mismatch (computed 7feae033 wanted b29b2508)
+--3624--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.27.so ..
+--3624--   .. CRC is valid
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libpcre.so.3.13.3
+--3624--   Considering /lib/x86_64-linux-gnu/libpcre.so.3.13.3 ..
+--3624--   .. CRC mismatch (computed 23718752 wanted 0e9b5133)
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.27.so
+--3624--   Considering /usr/lib/debug/.build-id/28/c6aade70b2d40d1f0f3d0a1a0cad1ab816448f.debug ..
+--3624--   .. build-id is valid
+--3624-- Reading syms from /usr/lib/x86_64-linux-gnu/libicudata.so.60.2
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+--3624--    object doesn't have a symbol table
+--3624-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--3624--    object doesn't have a symbol table
+--3624-- REDIR: 0x55b1c70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1f50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b37c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1de0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1c10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1d40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55cf0f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1fa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b20e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b07c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55bb6c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1ff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1be0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55cfeb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1f20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1ef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b37f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b2040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x56448a0 (libc.so.6:__memcpy_chk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b1b20 (libc.so.6:strstr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x55b0cd0 (libc.so.6:strncat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--3624-- REDIR: 0x5644970 (libc.so.6:__memmove_chk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+==3624== WARNING: new redirection conflicts with existing -- ignoring it
+--3624--     old: 0x056a1ac0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--3624--     new: 0x056a1ac0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+==3624== WARNING: new redirection conflicts with existing -- ignoring it
+--3624--     old: 0x056a1ac0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--3624--     new: 0x056a1ac0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+--3624-- REDIR: 0x56a13c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--3624-- REDIR: 0x55aa070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--3624-- REDIR: 0x56a1590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--3624-- REDIR: 0x55ad030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+--3624-- REDIR: 0x568e950 (libc.so.6:__strcpy_ssse3) redirected to 0x4c32dd0 (strcpy)
+==3624== Invalid write of size 8
+==3624==    at 0x10B5AB: load (interface.c:29)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96ddd is 13 bytes inside a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid write of size 2
+==3624==    at 0x10B5AE: load (interface.c:29)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de5 is 7 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid write of size 1
+==3624==    at 0x10B5B4: load (interface.c:29)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de7 is 9 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+--3624-- REDIR: 0x56a1ad0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+==3624== Syscall param stat(file_name) points to unaddressable byte(s)
+==3624==    at 0x5622775: _xstat (xstat.c:35)
+==3624==    by 0x4EB0381: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Syscall param stat(file_name) points to unaddressable byte(s)
+==3624==    at 0x5622775: _xstat (xstat.c:35)
+==3624==    by 0x4EB0B71: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Syscall param stat(file_name) points to unaddressable byte(s)
+==3624==    at 0x5622775: _xstat (xstat.c:35)
+==3624==    by 0x4EAB805: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F9FDA7: __libxml2_xzopen (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAB81D: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x4C32E03: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F9FDC7: __libxml2_xzopen (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAB81D: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Syscall param openat(filename) points to unaddressable byte(s)
+==3624==    at 0x5622C8E: open (open64.c:47)
+==3624==    by 0x4F9FDD8: __libxml2_xzopen (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAB81D: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x4F11E2C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 2
+==3624==    at 0x4C36750: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E62: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de0 is 2 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 2
+==3624==    at 0x4C3675F: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E62: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de4 is 6 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x4C36788: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E62: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de6 is 8 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+--3624-- REDIR: 0x5690100 (libc.so.6:__strncpy_ssse3) redirected to 0x4c32fb0 (strncpy)
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4C32FE1: strncpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4EAFFE6: xmlParserGetDirectory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7641D: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB0007: xmlParserGetDirectory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7641D: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB0043: xmlParserGetDirectory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7641D: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB21D2: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB222B: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB224F: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB2253: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB396F: xmlURIUnescapeString (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB48D4: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+--3624-- REDIR: 0x55aa950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4F11E2F: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+--3624-- REDIR: 0x569dba0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4c35e00 (bcmp)
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB21D2: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB222B: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB224F: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB2253: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB396F: xmlURIUnescapeString (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB48D4: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4F11E2F: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB62A2: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+--3624-- REDIR: 0x55abc30 (libc.so.6:realloc) redirected to 0x4c31cb0 (realloc)
+--3624-- REDIR: 0x5698510 (libc.so.6:__strncmp_sse42) redirected to 0x4c33570 (__strncmp_sse42)
+==3624== Invalid read of size 1
+==3624==    at 0x4C32CF2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C16E: mystrdup (common.c:8)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43010 is 0 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C16E: mystrdup (common.c:8)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43011 is 1 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x568E950: __strcpy_ssse3 (strcpy-ssse3.S:32)
+==3624==    by 0x10C19F: mystrdup (common.c:10)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43010 is 0 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== Invalid read of size 1
+==3624==    at 0x4C32E03: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C19F: mystrdup (common.c:10)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43011 is 1 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== More than 10000000 total errors detected.  I'm not reporting any more.
+==3624== Final error counts will be inaccurate.  Go fix your program!
+==3624== Rerun with --error-limit=no to disable this cutoff.  Note
+==3624== that errors may occur in your program without prior warning from
+==3624== Valgrind, because errors are no longer being displayed.
+==3624== 
+--3624-- REDIR: 0x56a11d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--3624-- REDIR: 0x56a1ab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+==3624== 
+==3624== HEAP SUMMARY:
+==3624==     in use at exit: 66,092,990 bytes in 955,638 blocks
+==3624==   total heap usage: 15,686,002 allocs, 14,730,365 frees, 1,265,171,741 bytes allocated
+==3624== 
+==3624== Searching for pointers to 955,638 not-freed blocks
+==3624== Checked 197,320 bytes
+==3624== 
+==3624== 4 bytes in 1 blocks are still reachable in loss record 1 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x528E382: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x528E8DB: g_private_get (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52664AC: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x525934A: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x4010732: call_init (dl-init.c:72)
+==3624==    by 0x4010732: _dl_init (dl-init.c:119)
+==3624==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==3624==    by 0x1: ???
+==3624==    by 0x1FFF0002D2: ???
+==3624==    by 0x1FFF0002DC: ???
+==3624== 
+==3624== 5 bytes in 1 blocks are still reachable in loss record 2 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 6 bytes in 1 blocks are still reachable in loss record 3 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E46F: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 6 bytes in 1 blocks are still reachable in loss record 4 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4FF: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 7 bytes in 1 blocks are still reachable in loss record 5 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4CB: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 9 bytes in 1 blocks are still reachable in loss record 6 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E489: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 9 bytes in 1 blocks are still reachable in loss record 7 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4AA: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 9 bytes in 1 blocks are still reachable in loss record 8 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E519: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 11 bytes in 1 blocks are still reachable in loss record 9 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E66B: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4E5: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 12 bytes in 1 blocks are definitely lost in loss record 10 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C296: createDate (date.c:11)
+==3624==    by 0x10A835: main (main.c:22)
+==3624== 
+==3624== 12 bytes in 1 blocks are definitely lost in loss record 11 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C296: createDate (date.c:11)
+==3624==    by 0x10A84D: main (main.c:23)
+==3624== 
+==3624== 14 bytes in 1 blocks are definitely lost in loss record 12 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 24 bytes in 2 blocks are possibly lost in loss record 13 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C296: createDate (date.c:11)
+==3624==    by 0x10A1C8: to_date (dateplus.c:29)
+==3624==    by 0x109CCF: parse_xmlposts (parser.c:121)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 32 bytes in 1 blocks are still reachable in loss record 14 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52374A8: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x525934A: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x4010732: call_init (dl-init.c:72)
+==3624==    by 0x4010732: _dl_init (dl-init.c:119)
+==3624==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==3624==    by 0x1: ???
+==3624==    by 0x1FFF0002D2: ???
+==3624==    by 0x1FFF0002DC: ???
+==3624== 
+==3624== 32 bytes in 1 blocks are still reachable in loss record 15 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x59057E4: _dlerror_run (dlerror.c:140)
+==3624==    by 0x5905050: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==3624==    by 0x60DED25: ??? (in /lib/x86_64-linux-gnu/liblzma.so.5.2.2)
+==3624==    by 0x60E5617: lzma_auto_decoder (in /lib/x86_64-linux-gnu/liblzma.so.5.2.2)
+==3624==    by 0x4F9EC1E: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4FA01D7: __libxml2_xzread (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAC538: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAEAD8: xmlParserInputBufferGrow (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E73FFF: xmlParserInputGrow (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7A453: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F2A4: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624== 
+==3624== 32 bytes in 1 blocks are indirectly lost in loss record 16 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52374A8: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A9D6: new_community (structures.c:53)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== 40 bytes in 1 blocks are still reachable in loss record 17 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F0E5AA: xmlNewMutex (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F0D838: xmlInitGlobals (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E90199: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 40 bytes in 1 blocks are still reachable in loss record 18 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F0E5AA: xmlNewMutex (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB1F79: xmlInitMemory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901BA: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 44 bytes in 1 blocks are still reachable in loss record 19 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4017880: _dl_exception_create (dl-exception.c:77)
+==3624==    by 0x567A250: _dl_signal_error (dl-error-skeleton.c:117)
+==3624==    by 0x4009812: _dl_map_object (dl-load.c:2384)
+==3624==    by 0x4014EE3: dl_open_worker (dl-open.c:235)
+==3624==    by 0x567A2DE: _dl_catch_exception (dl-error-skeleton.c:196)
+==3624==    by 0x40147C9: _dl_open (dl-open.c:605)
+==3624==    by 0x5904F95: dlopen_doit (dlopen.c:66)
+==3624==    by 0x567A2DE: _dl_catch_exception (dl-error-skeleton.c:196)
+==3624==    by 0x567A36E: _dl_catch_error (dl-error-skeleton.c:215)
+==3624==    by 0x5905734: _dlerror_run (dlerror.c:162)
+==3624==    by 0x5905050: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 20 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E46F: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 21 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E489: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 22 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4AA: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 23 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4CB: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 24 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4E5: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 25 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E4FF: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 26 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E6E519: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 56 bytes in 1 blocks are still reachable in loss record 27 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E685: xmlNewCharEncodingHandler (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 64 bytes in 1 blocks are still reachable in loss record 28 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5237493: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x525934A: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x4010732: call_init (dl-init.c:72)
+==3624==    by 0x4010732: _dl_init (dl-init.c:119)
+==3624==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==3624==    by 0x1: ???
+==3624==    by 0x1FFF0002D2: ???
+==3624==    by 0x1FFF0002DC: ???
+==3624== 
+==3624== 64 bytes in 1 blocks are indirectly lost in loss record 29 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5237493: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A9D6: new_community (structures.c:53)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== 69 bytes in 3 blocks are possibly lost in loss record 30 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B01F: new_post (objPost.c:33)
+==3624==    by 0x109D66: parse_xmlposts (parser.c:134)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 88 bytes in 1 blocks are still reachable in loss record 31 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x525934A: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x4010732: call_init (dl-init.c:72)
+==3624==    by 0x4010732: _dl_init (dl-init.c:119)
+==3624==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==3624==    by 0x1: ???
+==3624==    by 0x1FFF0002D2: ???
+==3624==    by 0x1FFF0002DC: ???
+==3624== 
+==3624== 88 bytes in 1 blocks are indirectly lost in loss record 32 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A95D: new_community (structures.c:50)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== 88 bytes in 1 blocks are indirectly lost in loss record 33 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A986: new_community (structures.c:51)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== 88 bytes in 1 blocks are indirectly lost in loss record 34 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A9AE: new_community (structures.c:52)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== 88 bytes in 1 blocks are indirectly lost in loss record 35 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A9D6: new_community (structures.c:53)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== 104 bytes in 1 blocks are still reachable in loss record 36 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F0E65A: xmlNewRMutex (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7891C: __xmlInitializeDict (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x6921826: __pthread_once_slow (pthread_once.c:116)
+==3624==    by 0x4F0EA00: xmlIsMainThread (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F0DF48: __xmlGenericError (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E9019E: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 115 bytes in 2 blocks are possibly lost in loss record 37 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B00B: new_post (objPost.c:32)
+==3624==    by 0x109D66: parse_xmlposts (parser.c:134)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 144 bytes in 2 blocks are possibly lost in loss record 38 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10AFC2: new_post (objPost.c:25)
+==3624==    by 0x109D66: parse_xmlposts (parser.c:134)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 400 bytes in 1 blocks are still reachable in loss record 39 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4E6E43F: xmlInitCharEncodingHandlers (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E901C4: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,073 bytes in 3 blocks are possibly lost in loss record 40 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 2,032 bytes in 1 blocks are still reachable in loss record 41 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52666E3: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x523744D: g_hash_table_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x525934A: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x4010732: call_init (dl-init.c:72)
+==3624==    by 0x4010732: _dl_init (dl-init.c:119)
+==3624==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==3624==    by 0x1: ???
+==3624==    by 0x1FFF0002D2: ???
+==3624==    by 0x1FFF0002DC: ???
+==3624== 
+==3624== 16,384 bytes in 1 blocks are still reachable in loss record 42 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x525935B: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x4010732: call_init (dl-init.c:72)
+==3624==    by 0x4010732: _dl_init (dl-init.c:119)
+==3624==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==3624==    by 0x1: ???
+==3624==    by 0x1FFF0002D2: ???
+==3624==    by 0x1FFF0002DC: ???
+==3624== 
+==3624== 16,384 bytes in 1 blocks are indirectly lost in loss record 43 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236BB4: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109E67: parse_xmlposts (parser.c:149)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 32,768 bytes in 1 blocks are indirectly lost in loss record 44 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236B87: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109E67: parse_xmlposts (parser.c:149)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 32,768 bytes in 1 blocks are indirectly lost in loss record 45 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236BA4: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109E67: parse_xmlposts (parser.c:149)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 106,840 bytes in 2,671 blocks are indirectly lost in loss record 46 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52766A9: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A0A2: new_btree (parser.c:189)
+==3624==    by 0x109E30: parse_xmlposts (parser.c:149)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 128,208 bytes in 2,671 blocks are indirectly lost in loss record 47 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5276BE4: g_tree_new_full (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10A07C: new_btree (parser.c:188)
+==3624==    by 0x109E30: parse_xmlposts (parser.c:149)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 344,356 bytes in 55,512 blocks are definitely lost in loss record 48 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x109C81: parse_xmlposts (parser.c:110)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 524,288 bytes in 1 blocks are indirectly lost in loss record 49 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236BB4: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109DE1: parse_xmlposts (parser.c:144)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,048,576 bytes in 1 blocks are indirectly lost in loss record 50 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236BB4: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109980: parse_xmlusers (parser.c:51)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,048,576 bytes in 1 blocks are indirectly lost in loss record 51 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236B87: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109DE1: parse_xmlposts (parser.c:144)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,048,576 bytes in 1 blocks are indirectly lost in loss record 52 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236BA4: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109DE1: parse_xmlposts (parser.c:144)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,237,164 bytes in 103,097 blocks are indirectly lost in loss record 53 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C296: createDate (date.c:11)
+==3624==    by 0x10A1C8: to_date (dateplus.c:29)
+==3624==    by 0x109CCF: parse_xmlposts (parser.c:121)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,432,938 bytes in 45,685 blocks are indirectly lost in loss record 54 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B01F: new_post (objPost.c:33)
+==3624==    by 0x109D66: parse_xmlposts (parser.c:134)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,644,928 bytes in 102,808 blocks are indirectly lost in loss record 55 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5267585: g_slist_prepend (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x10BC63: update_user_posts (objUser.c:53)
+==3624==    by 0x109DB9: parse_xmlposts (parser.c:141)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,660,128 bytes in 150,446 blocks are indirectly lost in loss record 56 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10BAC4: new_user (objUser.c:28)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 1,720,680 bytes in 43,017 blocks are indirectly lost in loss record 57 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E858: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5266675: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5276509: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109EB3: parse_xmlposts (parser.c:151)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 2,097,152 bytes in 1 blocks are indirectly lost in loss record 58 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236B87: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109980: parse_xmlusers (parser.c:51)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 2,097,152 bytes in 1 blocks are indirectly lost in loss record 59 of 64
+==3624==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x524E8B0: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236BA4: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x5236DEE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x52371AA: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.1)
+==3624==    by 0x109980: parse_xmlusers (parser.c:51)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 2,437,667 bytes in 45,686 blocks are indirectly lost in loss record 60 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B00B: new_post (objPost.c:32)
+==3624==    by 0x109D66: parse_xmlposts (parser.c:134)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 7,221,408 bytes in 150,446 blocks are indirectly lost in loss record 61 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10BAA9: new_user (objUser.c:25)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 7,422,984 bytes in 103,097 blocks are indirectly lost in loss record 62 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10AFC2: new_post (objPost.c:25)
+==3624==    by 0x109D66: parse_xmlposts (parser.c:134)
+==3624==    by 0x10B656: load (interface.c:34)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 32,767,724 bytes in 150,443 blocks are indirectly lost in loss record 63 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 65,727,397 (40 direct, 65,727,357 indirect) bytes in 1 blocks are definitely lost in loss record 64 of 64
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10A93A: new_community (structures.c:48)
+==3624==    by 0x10B555: init (interface.c:24)
+==3624==    by 0x10A866: main (main.c:26)
+==3624== 
+==3624== LEAK SUMMARY:
+==3624==    definitely lost: 344,434 bytes in 55,516 blocks
+==3624==    indirectly lost: 65,727,357 bytes in 900,082 blocks
+==3624==      possibly lost: 1,425 bytes in 12 blocks
+==3624==    still reachable: 19,774 bytes in 28 blocks
+==3624==         suppressed: 0 bytes in 0 blocks
+==3624== 
+==3624== ERROR SUMMARY: 10000010 errors from 42 contexts (suppressed: 0 from 0)
+==3624== 
+==3624== 1 errors in context 1 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB21D2: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 2 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB21D2: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 3 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB0007: xmlParserGetDirectory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7641D: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 4 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4C36788: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E62: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de6 is 8 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 5 of 42:
+==3624== Invalid read of size 2
+==3624==    at 0x4C3675F: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E62: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de4 is 6 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 6 of 42:
+==3624== Syscall param openat(filename) points to unaddressable byte(s)
+==3624==    at 0x5622C8E: open (open64.c:47)
+==3624==    by 0x4F9FDD8: __libxml2_xzopen (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAB81D: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 7 of 42:
+==3624== Syscall param stat(file_name) points to unaddressable byte(s)
+==3624==    at 0x5622775: _xstat (xstat.c:35)
+==3624==    by 0x4EAB805: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 8 of 42:
+==3624== Syscall param stat(file_name) points to unaddressable byte(s)
+==3624==    at 0x5622775: _xstat (xstat.c:35)
+==3624==    by 0x4EB0B71: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 9 of 42:
+==3624== Syscall param stat(file_name) points to unaddressable byte(s)
+==3624==    at 0x5622775: _xstat (xstat.c:35)
+==3624==    by 0x4EB0381: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 10 of 42:
+==3624== Invalid write of size 1
+==3624==    at 0x10B5B4: load (interface.c:29)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de7 is 9 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 11 of 42:
+==3624== Invalid write of size 2
+==3624==    at 0x10B5AE: load (interface.c:29)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de5 is 7 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 1 errors in context 12 of 42:
+==3624== Invalid write of size 8
+==3624==    at 0x10B5AB: load (interface.c:29)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96ddd is 13 bytes inside a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 13 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4F11E2F: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB62A2: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 14 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB396F: xmlURIUnescapeString (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB48D4: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 15 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB2253: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 16 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB224F: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 17 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB222B: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB628A: xmlPathToURI (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4F7A62E: xmlSAX2StartDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8F137: xmlParseDocument (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E900A7: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 18 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4F11E2F: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 19 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB396F: xmlURIUnescapeString (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB48D4: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 20 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB2253: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 21 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB224F: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 22 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB222B: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB4587: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB6051: xmlCanonicPath (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7643A: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 23 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4EB0043: xmlParserGetDirectory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7641D: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 24 of 42:
+==3624== Conditional jump or move depends on uninitialised value(s)
+==3624==    at 0x4C32FE1: strncpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4EAFFE6: xmlParserGetDirectory (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E7641D: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 2 errors in context 25 of 42:
+==3624== Invalid read of size 2
+==3624==    at 0x4C36750: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E62: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96de0 is 2 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 10 errors in context 26 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4F11E2C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76507: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 10 errors in context 27 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4C32E03: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F9FDC7: __libxml2_xzopen (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAB81D: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 10 errors in context 28 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F9FDA7: __libxml2_xzopen (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EAB81D: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EADB0F: __xmlParserInputBufferCreateFilename (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E76371: xmlNewInputFromFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB0B85: ??? (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4EB02DA: xmlLoadExternalEntity (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x4E8FF9C: xmlParseFile (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1097E0: parse_xmlusers (parser.c:19)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x8c96dde is 0 bytes after a block of size 14 alloc'd
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C17A: mystrdup (common.c:8)
+==3624==    by 0x10B573: load (interface.c:28)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 22120 errors in context 29 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x568E950: __strcpy_ssse3 (strcpy-ssse3.S:32)
+==3624==    by 0x10C19F: mystrdup (common.c:10)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43010 is 0 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 22121 errors in context 30 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4C32CF2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C16E: mystrdup (common.c:8)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43010 is 0 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 4977839 errors in context 31 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4C32E03: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C19F: mystrdup (common.c:10)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43011 is 1 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== 
+==3624== 4977852 errors in context 32 of 42:
+==3624== Invalid read of size 1
+==3624==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x10C16E: mystrdup (common.c:8)
+==3624==    by 0x10BAE5: new_user (objUser.c:30)
+==3624==    by 0x109965: parse_xmlusers (parser.c:50)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Address 0x34f43011 is 1 bytes inside a block of size 498 free'd
+==3624==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x1099C0: parse_xmlusers (parser.c:56)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624==  Block was alloc'd at
+==3624==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3624==    by 0x4F11E4C: xmlStrdup (in /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4)
+==3624==    by 0x1098EA: parse_xmlusers (parser.c:37)
+==3624==    by 0x10B62D: load (interface.c:32)
+==3624==    by 0x10A884: main (main.c:27)
+==3624== 
+==3624== ERROR SUMMARY: 10000010 errors from 42 contexts (suppressed: 0 from 0)

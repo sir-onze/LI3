@@ -1,2 +1,2 @@
 # LI3
-Trabalho de Laboartórios de Informatica 3
+Trabalho de Laboratórios de Informatica 3
